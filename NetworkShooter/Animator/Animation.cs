@@ -2,33 +2,31 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace NetworkShooter.Animator
 {
-    public class Animation
+    public abstract class Animation
     {
-        private Texture2D _animationSheet;
-        private List<AnimationFrame> animationFrames = new List<AnimationFrame>();
+        protected Texture2D _animationSheet;
+        protected List<AnimationFrame> animationFrames = new List<AnimationFrame>();
+        protected double _animationDuration = 2000;
+        protected int _countFrames;
 
-
-        private double _animationDuration = 2000;
-
-        private int _countFrames;
         public AnimationFrame CurrentAnimationFrame
         {
             get
             {
                 return animationFrames[_currentFrameIndex];
             }
+
+            protected set 
+            {
+                animationFrames[_currentFrameIndex] = value;
+            }
         }
 
-        private int _currentFrameIndex;
+        protected int _currentFrameIndex;
 
-        private double _timer;
+        protected double _timer;
 
         public Animation(Texture2D animationSpriteSheet, int framesCount, double animationDuration)
         {
@@ -44,7 +42,7 @@ namespace NetworkShooter.Animator
             }
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             _timer += gameTime.ElapsedGameTime.TotalMilliseconds;
 

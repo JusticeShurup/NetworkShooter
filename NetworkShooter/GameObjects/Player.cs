@@ -90,7 +90,7 @@ namespace NetworkShooter.GameObjects
 
             Position = new Vector2(100, 100);
             _texture = Game.Content.Load<Texture2D>("SoldierSheet");
-            _animation = new Animation(_texture, 17, 2000);
+            _animation = new WalkAnimation(_texture, 17, 2000);
 
             base.Initialize();
         }

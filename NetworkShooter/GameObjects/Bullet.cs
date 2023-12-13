@@ -16,14 +16,11 @@ namespace NetworkShooter.GameObjects
             Position = position;
             Direction = direction;
             direction.Normalize();
-            BulletSpeed = 0.25f;
+            BulletSpeed = 2f;
 
         }
 
-        ~Bullet() 
-        {
-            Console.WriteLine("I am done");
-        }
+        ~Bullet() {}
 
         protected override void Dispose(bool disposing)
         {
