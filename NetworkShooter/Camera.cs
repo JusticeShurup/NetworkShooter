@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
 namespace NetworkShooter
 {
     public static class Camera
     {
         public static Vector2 Position { get; private set; }
+        public static float Rotation = 0;
         public static Matrix Transform { get; private set; }
         public static float Delay { get; set; } = 3.0f;
 

@@ -70,6 +70,7 @@ namespace NetworkShooter.GameObjects
 
                 newPosition.Normalize();
                 newPosition *= 10f;
+
                 Position += newPosition;
             }
         }
@@ -100,8 +101,10 @@ namespace NetworkShooter.GameObjects
             fireCooldownTimer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             HandleInput(gameTime);
-            Camera.Update(Position);
             RotatePlayer();
+
+            Camera.Rotation = (float)Rotation;
+            Camera.Update(Position);
 
             _animation.Update(gameTime);
         }
