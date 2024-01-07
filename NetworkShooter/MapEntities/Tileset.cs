@@ -21,14 +21,14 @@ namespace NetworkShooter.MapEntities
         private Rectangle _tileRect;
 
 
-        public Tileset(Game game, SpriteBatch spriteBatch, Vector2 position)
+        public Tileset(Microsoft.Xna.Framework.Game game, SpriteBatch spriteBatch, Vector2 position)
                 : base(game)
         {
             Position = position;
             _spriteBatch = spriteBatch;
         }
 
-        internal Tileset(Game game, SpriteBatch spriteBatch, Vector2 position, TilesetType tilesetType)
+        internal Tileset(Microsoft.Xna.Framework.Game game, SpriteBatch spriteBatch, Vector2 position, TilesetType tilesetType)
                 : base(game)
         {
             Position = position;

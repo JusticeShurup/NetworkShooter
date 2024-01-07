@@ -10,7 +10,7 @@ namespace NetworkShooter.GameObjects
         public Vector2 Direction { get; private set; }
         public float BulletSpeed { get; private set; }
 
-        public Bullet(Game game, SpriteBatch spriteBatch, Vector2 position, Vector2 direction) 
+        public Bullet(MainGame game, SpriteBatch spriteBatch, Vector2 position, Vector2 direction) 
             : base(game, spriteBatch)
         {
             Position = position;
@@ -26,9 +26,9 @@ namespace NetworkShooter.GameObjects
         {
             if (disposing)
             {
-                if (Game.Components.FirstOrDefault(this) != null)
+                if (game.Components.FirstOrDefault(this) != null)
                 {
-                    Game.Components.Remove(this);
+                    game.RemoveBullet(this);
                 }
             }
             base.Dispose(disposing);
@@ -36,7 +36,7 @@ namespace NetworkShooter.GameObjects
 
         public override void Initialize()
         {
-            _texture = Game.Content.Load<Texture2D>("Bullet");
+            _texture = game.Content.Load<Texture2D>("Bullet");
 
             base.Initialize();
             DrawOrder = 101;
@@ -45,6 +45,8 @@ namespace NetworkShooter.GameObjects
 
         public override void Update(GameTime gameTime)
         {
+
+
             Position += Direction * (float)gameTime.ElapsedGameTime.TotalMilliseconds * BulletSpeed;
 
             if (Math.Abs(Position.X) >= 10000 || Math.Abs(Position.Y) >= 10000)
@@ -59,7 +61,7 @@ namespace NetworkShooter.GameObjects
         public override void Draw(GameTime gameTime)
         {
 
-            _spriteBatch.Begin(transformMatrix: Camera.Transform);
+            _spriteBatch.Begin(transformMatrix: Camera.Translation);
             _spriteBatch.Draw(_texture, Position, new Rectangle(0, 0, _texture.Width, _texture.Height), Color.White, 0, Vector2.Zero, 0.25f, SpriteEffects.None, 0);
             _spriteBatch.End();
 

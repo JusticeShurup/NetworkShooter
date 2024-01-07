@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NetworkShooter.Animations.Animation">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAAAAgAAAAAAAAAgAAAAAAIAAAEgQAAAAAAAA=</HashCode>
+      <FileName>Animations\Animation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.Animations.AnimationFrame">
+    <Position X="13.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Animations\AnimationFrame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.Animations.Animator">
+    <Position X="15.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAQAAAAAwAAAAAACAAAgABAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Animations\Animator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.Animations.IdleAnimation">
+    <Position X="9" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Animations\IdleAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.Animations.ReloadAnimation">
+    <Position X="11.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Animations\ReloadAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.Animations.WalkAnimation">
+    <Position X="6.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Animations\WalkAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.GameObjects.Bullet">
+    <Position X="13" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAGAAAwAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.GameObjects.Enemy">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAACAAAAAAAAAAgAABAAAAAAAQ=</HashCode>
+      <FileName>GameObjects\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.GameObjects.GameObject">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAYAAA4AiAAAAAAAAAAAAAgAIAIAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.GameObjects.Player">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQEgBSAAAAABwAAAEAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.MapEntities.Map">
+    <Position X="13.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABAAAAwAAAAAAAEAAAAAAIAAAAIAAAAAAAAQ=</HashCode>
+      <FileName>MapEntities\Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.MapEntities.Tileset">
+    <Position X="15.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAgwAgQAAAAAAAAAAAAAAAAIQAAAgAAAQ=</HashCode>
+      <FileName>MapEntities\Tileset.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.States.Base.GameState">
+    <Position X="7.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAEwAAAAAAAAAAAAAAAAAIAIAAAAAAAAA=</HashCode>
+      <FileName>States\Base\GameState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.States.GameplayState">
+    <Position X="5.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAggAAAoAAEwAAAAAACAAAAAEAAAABAkAAIBAAAAA=</HashCode>
+      <FileName>States\GameplayState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.States.MenuState">
+    <Position X="9.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAABAEAAEwAAAAAAABAQAIAEAAIAAAAABAAAAgA=</HashCode>
+      <FileName>States\MenuState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.Button">
+    <Position X="19" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAwAAAAAAQAAAgAgAAAAAAAAAAqgACAAAAAACAAAAgA=</HashCode>
+      <FileName>Button.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.Camera">
+    <Position X="11.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAACAAAAIAiAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.GUI">
+    <Position X="20.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAgAAAAAACAAAAAAAEAAIAIAAQAAAAAQ=</HashCode>
+      <FileName>GUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkShooter.MainGame">
+    <Position X="17.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAFwgAAAAACAAAAAAAAAACAIAAAAAAAAQ=</HashCode>
+      <FileName>MainGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="NetworkShooter.Enum.Events">
+    <Position X="12.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Enum\Events.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NetworkShooter.GameObjects.PlayerState">
+    <Position X="15.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEIAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\PlayerState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NetworkShooter.MapEntities.TilesetType">
+    <Position X="12.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAIAAAgAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>MapEntities\TilesetType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="NetworkShooter.GameMode">
+    <Position X="14" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkAAA=</HashCode>
+      <FileName>GameMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetworkShooter.GameObjects
+namespace NetworkShooter
 {
-    public enum PlayerState
-    { 
-        IDLE, 
-        WALK,
-        RELOAD
+    public enum GameMode
+    {
+        Easy = 1,
+        Medium = 2,
+        Hard = 3
     }
 }

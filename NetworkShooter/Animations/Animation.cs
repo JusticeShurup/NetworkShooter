@@ -1,13 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-namespace NetworkShooter.Animator
+namespace NetworkShooter.Animations
 {
-    public abstract class Animation
+    public abstract class Animation 
     {
-        protected Texture2D _animationSheet;
-        protected List<AnimationFrame> animationFrames = new List<AnimationFrame>();
+        public Texture2D AnimationSheet { get; protected set; }
+        public List<AnimationFrame> AnimationFrames { get; protected set; } = new List<AnimationFrame>();
+
         protected double _animationDuration = 2000;
         protected int _countFrames;
 
@@ -15,32 +17,19 @@ namespace NetworkShooter.Animator
         {
             get
             {
-                return animationFrames[_currentFrameIndex];
+                return AnimationFrames[_currentFrameIndex];
             }
 
             protected set 
             {
-                animationFrames[_currentFrameIndex] = value;
+                AnimationFrames[_currentFrameIndex] = value;
             }
         }
 
         protected int _currentFrameIndex;
-
         protected double _timer;
 
-        public Animation(Texture2D animationSpriteSheet, int framesCount, double animationDuration)
-        {
-            _animationSheet = animationSpriteSheet;
-            _countFrames = framesCount;
-            _animationDuration = animationDuration;
-
-            int frameWidth = _animationSheet.Width / _countFrames;
-            int frameHeight = _animationSheet.Height;
-            for (int i = 0; i < _countFrames; i++)
-            {
-                animationFrames.Add(new AnimationFrame(new Rectangle(frameWidth * i, 0, frameWidth, frameHeight)));
-            }
-        }
+        public Animation(ContentManager manager) {}
 
         public virtual void Update(GameTime gameTime)
         {

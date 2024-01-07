@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetworkShooter.Animator
+namespace NetworkShooter.Animations
 {
     public class AnimationFrame
     {

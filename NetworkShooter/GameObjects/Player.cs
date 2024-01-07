@@ -1,22 +1,27 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using NetworkShooter.Animator;
+using NetworkShooter;
+using NetworkShooter.Animations;
 using System;
 
 namespace NetworkShooter.GameObjects
 {
     public class Player : GameObject
     {
+
+        private Animator animator;
+
         private readonly float fireCooldown = 100f;
         private float fireCooldownTimer = 0;
+        private float reloadAnimationTimer = 0;
+        public int Bullets { get; private set; } = 30;
+        public PlayerState playerState { get; private set; } = PlayerState.IDLE;
 
-        private Animation _animation;
-
-        public Player(Game game, Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch) 
+        public Player(MainGame game, SpriteBatch spriteBatch) 
             : base(game, spriteBatch)
         {
-         
+            animator = new Animator(game, this);
         }
 
         private float CalculateBulletPosition()
@@ -26,15 +31,13 @@ namespace NetworkShooter.GameObjects
 
         private void HandleInput(GameTime gameTime)
         {
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed && fireCooldownTimer >= fireCooldown)
-            {
-
-                
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed && fireCooldownTimer >= fireCooldown && playerState != PlayerState.RELOAD && Bullets > 0)
+            {   
                 fireCooldownTimer = 0;
                 Vector2 mousePosition = Camera.ScreenToWorldSpace(Mouse.GetState().Position.ToVector2());
                 Vector2 direction = mousePosition - Position;
 
-                Vector2 centeredPoint = Position + new Vector2(42.5f, -205) - Position;
+                Vector2 centeredPoint = Position + new Vector2(42.5f / 2, -205 / 2) - Position;
 
                 Vector2 rotatedPoint = new Vector2(
                     centeredPoint.X * (float)Math.Cos(Rotation) - centeredPoint.Y * (float)Math.Sin(Rotation),
@@ -44,12 +47,14 @@ namespace NetworkShooter.GameObjects
                 Vector2 finalPoint = rotatedPoint + Position;
 
                 direction.Normalize();
-                Game.Components.Add(new Bullet(Game, _spriteBatch, finalPoint, direction));
+                var bullet = new Bullet(game, _spriteBatch, finalPoint, direction);
+                game.AddBullet(bullet);
+                Bullets -= 1;
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.D))
+            if ((Keyboard.GetState().IsKeyDown(Keys.S) || Keyboard.GetState().IsKeyDown(Keys.W) || Keyboard.GetState().IsKeyDown(Keys.A) || Keyboard.GetState().IsKeyDown(Keys.D)) && playerState != PlayerState.RELOAD)
             {
-
+                playerState = PlayerState.WALK;
                 Vector2 newPosition = Vector2.Zero;
                 if (Keyboard.GetState().IsKeyDown(Keys.S))
                 {
@@ -73,6 +78,12 @@ namespace NetworkShooter.GameObjects
 
                 Position += newPosition;
             }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.R))
+            {
+                playerState = PlayerState.RELOAD;
+                reloadAnimationTimer = 0;
+            }
         }
 
         private void RotatePlayer()
@@ -88,32 +99,30 @@ namespace NetworkShooter.GameObjects
 
         public override void Initialize()
         {
-
-            Position = new Vector2(100, 100);
-            _texture = Game.Content.Load<Texture2D>("SoldierSheet");
-            _animation = new WalkAnimation(_texture, 17, 2000);
-
             base.Initialize();
         }
 
         public override void Update(GameTime gameTime)
         {
+            if (reloadAnimationTimer >= 1200)
+            {
+                if (playerState == PlayerState.RELOAD) Bullets = 30;
+                playerState = PlayerState.IDLE;
+            }
             fireCooldownTimer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            reloadAnimationTimer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             HandleInput(gameTime);
             RotatePlayer();
 
-            Camera.Rotation = (float)Rotation;
-            Camera.Update(Position);
+            Camera.Update(Position, (float) Rotation);
 
-            _animation.Update(gameTime);
+            animator.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            _spriteBatch.Begin(transformMatrix: Camera.Transform);
-            _spriteBatch.Draw(_texture, Position, _animation.CurrentAnimationFrame.Rectangle, Color.White, (float)Rotation, new Vector2(_texture.Width / 17 / 2, _texture.Height / 2), 1, SpriteEffects.None, 0);
-            _spriteBatch.End();
+            animator.Draw(gameTime, _spriteBatch, (float)Rotation);
         }
 
 

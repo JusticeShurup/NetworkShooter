@@ -17,7 +17,7 @@ namespace NetworkShooter.MapEntities
 
 
 
-        public Map(Game game, SpriteBatch spriteBatch, int width, int height) : base(game)
+        public Map(Microsoft.Xna.Framework.Game game, SpriteBatch spriteBatch, int width, int height) : base(game)
         {
             _spriteBatch = spriteBatch;
             Width = width; 
@@ -51,7 +51,7 @@ namespace NetworkShooter.MapEntities
 
         public override void Draw(GameTime gameTime)
         {
-            _spriteBatch.Begin(transformMatrix: Camera.Transform);
+            _spriteBatch.Begin(transformMatrix: Camera.Translation);
             foreach (var tileset in _tilesets)
             {
                 tileset.Draw(gameTime);
